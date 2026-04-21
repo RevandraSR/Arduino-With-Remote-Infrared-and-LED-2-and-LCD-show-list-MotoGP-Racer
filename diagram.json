@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "author": "Revandr. A S.R",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0.6, "left": -0.6, "attrs": {} },
+    { "type": "wokwi-ir-receiver", "id": "ir1", "top": -241.35, "left": 94.22, "attrs": {} },
+    { "type": "wokwi-ir-remote", "id": "remote1", "top": -76.8, "left": -172.8, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -176.4,
+      "left": 368.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -176.4,
+      "left": 330.2,
+      "attrs": { "color": "limegreen" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -100.8,
+      "left": 373.85,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -100.8,
+      "left": 325.85,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -492.8,
+      "left": 140,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "led1:A", "r1:1", "red", [ "v0" ] ],
+    [ "r1:2", "uno:3", "red", [ "h0", "v37.2", "h-182.4" ] ],
+    [ "led2:A", "r2:1", "green", [ "v0" ] ],
+    [ "ir1:DAT", "uno:2", "yellow", [ "v134.4", "h105.6" ] ],
+    [ "led2:C", "uno:GND.1", "black", [ "v96", "h-230", "v9.6" ] ],
+    [ "led1:C", "uno:GND.1", "black", [ "v96", "h-18.8" ] ],
+    [ "ir1:GND", "uno:GND.1", "black", [ "v0" ] ],
+    [ "ir1:VCC", "uno:5V", "red", [ "v134.4", "h-134.4", "v249.6", "h163.2" ] ],
+    [ "lcd1:GND", "uno:GND.1", "black", [ "h-230.4", "v345.6", "h201.6", "v19.2" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h-192", "v364.9", "h48", "v316.8", "h163.2" ] ],
+    [ "lcd1:SDA", "uno:A4.2", "green", [ "h-172.8", "v345.8", "h57.6" ] ],
+    [ "lcd1:SCL", "uno:A5.2", "gold", [ "h-153.6", "v393.9", "h38.4" ] ],
+    [ "r2:2", "uno:5", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
